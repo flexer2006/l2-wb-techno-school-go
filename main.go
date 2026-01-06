@@ -1,13 +1,18 @@
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
-	ch := make(chan int)
-	go func() {
-		for i := 0; i < 10; i++ {
-			ch <- i
-		}
-	}()
-	for n := range ch {
-		println(n)
-	}
+	var s = []string{"1", "2", "3"}
+	modifySlice(s)
+	fmt.Println(s)
+}
+
+func modifySlice(i []string) {
+	i[0] = "3"
+	i = append(i, "4")
+	i[1] = "5"
+	i = append(i, "6")
 }
